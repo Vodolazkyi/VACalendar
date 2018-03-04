@@ -13,6 +13,6 @@ VACalendar helps create customizable calendar for your app. It also supports ver
   s.author           = { 'Anton Vodolazkyi' => 'vodolazky@me.com' }
   s.platform         = :ios, '10.0'
   s.source           = { :git => 'https://github.com/Vodolazkyi/VACalendar.git', :tag => s.version.to_s }
-  s.source_files     = 'VACalendar/Sources/*.swift'
+  s.source_files     = 'VACalendar/Sources/*.'
 
 end
