@@ -18,8 +18,8 @@ public struct VAMonthHeaderViewAppearance {
         monthFont: UIFont = UIFont.systemFont(ofSize: 21),
         monthTextColor: UIColor = UIColor.black,
         monthTextWidth: CGFloat = 150,
-        previousButtonImage: UIImage = #imageLiteral(resourceName: "previous_month_button"),
-        nextButtonImage: UIImage = #imageLiteral(resourceName: "next_month_button"),
+        previousButtonImage: UIImage = UIImage(),
+        nextButtonImage: UIImage = UIImage(),
         dateFormat: String = "MMMM") {
         self.monthFont = monthFont
         self.monthTextColor = monthTextColor
