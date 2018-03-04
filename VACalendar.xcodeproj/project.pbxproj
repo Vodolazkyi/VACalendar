@@ -73,15 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				60086D60204C707A002097E7 /* VACalendar.h */,
-				60086D68204C7117002097E7 /* Sources */,
-				60086D61204C707A002097E7 /* Info.plist */,
-			);
-			path = VACalendar;
-			sourceTree = "<group>";
-		};
-		60086D68204C7117002097E7 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
 				60086D6D204C712E002097E7 /* VACalendar.swift */,
 				60086D73204C712E002097E7 /* VACalendarMonthDelegate.swift */,
 				60086D6C204C712E002097E7 /* VACalendarView.swift */,
@@ -95,8 +86,9 @@
 				60086D6F204C712E002097E7 /* VAWeek.swift */,
 				60086D6E204C712E002097E7 /* VAWeekDaysView.swift */,
 				60086D71204C712E002097E7 /* VAWeekView.swift */,
+				60086D61204C707A002097E7 /* Info.plist */,
 			);
-			path = Sources;
+			path = VACalendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
