@@ -16,6 +16,8 @@ use_frameworks!
 # Latest release in CocoaPods
 pod 'VACalendar'
 
+````
+
 ## License
 
-`VACalendar` is released under an [MIT License][mitLink]. See `LICENSE` for details.
+`VACalendar` is released under an MIT License. See `LICENSE` for details.
