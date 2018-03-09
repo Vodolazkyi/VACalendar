@@ -1,7 +1,7 @@
 # VACalendar
 
 <p>
-<img  src="Screenshots/vartical_calendar.gif.gif" width="32%" height="auto"> <img  src="Screenshots/horizontal_calendar.gif" width="32%" height="auto">
+<img  src="Screenshots/vertical_calendar.gif.gif" width="45%" height="auto"> <img  src="Screenshots/horizontal_calendar.gif" width="45%" height="auto">
 </p>
 
 ## Requirements
