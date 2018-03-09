@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+use_frameworks!
+inhibit_all_warnings!
+
+target 'VACalendarExample' do
+  pod 'VACalendar', :path => '/Users/vodolazkyi/Desktop/VACalendar'
+#    pod 'VACalendar'
+end

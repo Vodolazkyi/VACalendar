@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJS-i5-TZQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--VACalendar-->
+        <scene sceneID="8tL-7v-b4o">
+            <objects>
+                <tableViewController id="ZtS-tR-5XC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="j9c-i1-AN8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="HcR-Cb-1gN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="p7y-Tt-cFH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p7y-Tt-cFH" id="gPW-qm-YKN">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertical Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zai-2x-KfO">
+                                                    <rect key="frame" x="20" y="34.5" width="183.5" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zai-2x-KfO" firstAttribute="leading" secondItem="gPW-qm-YKN" secondAttribute="leading" constant="20" id="aqE-a8-1Ws"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="Zai-2x-KfO" firstAttribute="centerY" secondItem="p7y-Tt-cFH" secondAttribute="centerY" id="Gv0-ut-WSz"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="dKF-5J-W8W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="umt-A8-nbJ">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="umt-A8-nbJ" id="frH-4M-8vc">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horizontal Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJO-6E-Ecx">
+                                                    <rect key="frame" x="20" y="34" width="213" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DJO-6E-Ecx" firstAttribute="centerY" secondItem="frH-4M-8vc" secondAttribute="centerY" id="QM8-Hf-l8u"/>
+                                                <constraint firstItem="DJO-6E-Ecx" firstAttribute="leading" secondItem="frH-4M-8vc" secondAttribute="leading" constant="20" id="q1F-2C-8vc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iPI-Dw-LbN" kind="show" id="PMF-Yr-5au"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ZtS-tR-5XC" id="Vhe-8M-HDv"/>
+                            <outlet property="delegate" destination="ZtS-tR-5XC" id="77d-Vd-VFk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="VACalendar" id="k9f-Ra-2Y3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="geH-fk-z9P"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFP-Gt-PBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="27"/>
+        </scene>
+        <!--Vertical Calendar-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="VerticalCalendarController" customModule="VACalendarExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hti-dv-JaX" customClass="VAWeekDaysView" customModule="VACalendar">
+                                <rect key="frame" x="0.0" y="74" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fHk-v0-UgK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hti-dv-JaX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CcK-is-NHu"/>
+                            <constraint firstItem="Hti-dv-JaX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Tok-dk-FLC"/>
+                            <constraint firstItem="Hti-dv-JaX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="jzf-UG-jSE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Vertical Calendar" id="kDo-He-Iz1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="5bs-ZP-v3d"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="weekDaysView" destination="Hti-dv-JaX" id="myT-Ru-hbs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1026" y="-274"/>
+        </scene>
+        <!--Horizontal Calendar-->
+        <scene sceneID="QEj-Oa-dlT">
+            <objects>
+                <viewController id="iPI-Dw-LbN" customClass="HorizontalCalendarController" customModule="VACalendarExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QhK-3z-bdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-Vq-Tgr" customClass="VAWeekDaysView" customModule="VACalendar">
+                                <rect key="frame" x="0.0" y="139" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u10-cY-4DI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AVf-E9-9Z4" customClass="VAMonthHeaderView" customModule="VACalendar">
+                                <rect key="frame" x="0.0" y="74" width="375" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="lev-Dr-1bM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AVf-E9-9Z4" firstAttribute="leading" secondItem="2zS-JQ-Nxm" secondAttribute="leading" id="Ews-rI-UaV"/>
+                            <constraint firstItem="bcQ-Vq-Tgr" firstAttribute="trailing" secondItem="2zS-JQ-Nxm" secondAttribute="trailing" id="RVB-gF-lO2"/>
+                            <constraint firstItem="bcQ-Vq-Tgr" firstAttribute="leading" secondItem="2zS-JQ-Nxm" secondAttribute="leading" id="bCk-40-osE"/>
+                            <constraint firstItem="AVf-E9-9Z4" firstAttribute="trailing" secondItem="2zS-JQ-Nxm" secondAttribute="trailing" id="iYd-rj-SGB"/>
+                            <constraint firstItem="bcQ-Vq-Tgr" firstAttribute="top" secondItem="AVf-E9-9Z4" secondAttribute="bottom" id="mxJ-dx-Noc"/>
+                            <constraint firstItem="AVf-E9-9Z4" firstAttribute="top" secondItem="2zS-JQ-Nxm" secondAttribute="top" constant="10" id="wGe-lc-OSD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2zS-JQ-Nxm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Horizontal Calendar" id="Urg-IH-63B">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hQq-HP-Cl7"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="monthHeaderView" destination="AVf-E9-9Z4" id="XuM-QZ-IAx"/>
+                        <outlet property="weekDaysView" destination="bcQ-Vq-Tgr" id="Bib-ch-rY0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfX-zd-M1y" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="427.73613193403304"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tSx-2C-mu0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qJS-i5-TZQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R0h-D2-CGn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZtS-tR-5XC" kind="relationship" relationship="rootViewController" id="j7f-x9-Oou"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILi-hv-Ro4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-756" y="34"/>
+        </scene>
+    </scenes>
+</document>

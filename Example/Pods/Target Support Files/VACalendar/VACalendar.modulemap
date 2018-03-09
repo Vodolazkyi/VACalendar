@@ -1,0 +1,6 @@
+framework module VACalendar {
+  umbrella header "VACalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}

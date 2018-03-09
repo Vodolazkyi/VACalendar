@@ -14,7 +14,7 @@ public struct VAMonthHeaderViewAppearance {
     let nextButtonImage: UIImage
     let dateFormat: String
     
-    init(
+    public init(
         monthFont: UIFont = UIFont.systemFont(ofSize: 21),
         monthTextColor: UIColor = UIColor.black,
         monthTextWidth: CGFloat = 150,
