@@ -1,5 +1,9 @@
 # VACalendar
 
+<p>
+<img  src="Screenshots/vartical_calendar.gif.gif" width="32%" height="auto"> <img  src="Screenshots/horizontal_calendar.gif" width="32%" height="auto">
+</p>
+
 ## Requirements
 
 * Swift 4.0
