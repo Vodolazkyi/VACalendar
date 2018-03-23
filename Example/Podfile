@@ -3,6 +3,5 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'VACalendarExample' do
-  pod 'VACalendar', :path => '/Users/vodolazkyi/Desktop/VACalendar'
-#    pod 'VACalendar'
+    pod 'VACalendar'
 end
