@@ -14,6 +14,10 @@ The calendar with support for:
 * First weekday sunday or monday
 * Supplementary views
 
+## Documentation
+
+Will be added soon
+
 ## Requirements
 
 * Swift 4.0
