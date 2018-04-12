@@ -80,6 +80,7 @@ public class VAMonthHeaderView: UIView {
         backgroundColor = .white
         monthLabel.font = appearance.monthFont
         monthLabel.textAlignment = .center
+        monthLabel.textColor = appearance.monthTextColor
         
         previousButton.setImage(appearance.previousButtonImage, for: .normal)
         previousButton.addTarget(self, action: #selector(didTapPrevious(_:)), for: .touchUpInside)
