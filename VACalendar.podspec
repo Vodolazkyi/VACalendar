@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'VACalendar'
-  s.version          = '1.1.5'
+  s.version          = '1.1.6'
   s.summary          = 'Custom Calendar for iOS in Swift'
   s.swift_version    = '4.0'
 
