@@ -233,6 +233,7 @@
                                     <constraint firstAttribute="width" constant="100" id="QP4-Mo-kkg"/>
                                 </constraints>
                                 <state key="normal" title="Select Day"/>
+                                <state key="selected" title="Done"/>
                                 <connections>
                                     <action selector="didTapSelectDay:" destination="5Jc-OE-Xtz" eventType="touchUpInside" id="Ub6-fD-Upd"/>
                                 </connections>

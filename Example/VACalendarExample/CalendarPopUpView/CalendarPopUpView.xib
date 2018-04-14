@@ -39,11 +39,11 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="c1F-6E-b1B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MaO-Bx-jAx"/>
+                <constraint firstItem="c1F-6E-b1B" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Vgm-02-rgY"/>
                 <constraint firstItem="ZeX-2I-1fL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="acW-Ws-e7X"/>
                 <constraint firstItem="c1F-6E-b1B" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="lKz-0Y-Nbl"/>
                 <constraint firstItem="ZeX-2I-1fL" firstAttribute="top" secondItem="c1F-6E-b1B" secondAttribute="bottom" id="nXM-kg-1K1"/>
                 <constraint firstItem="ZeX-2I-1fL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x9R-Ns-gAg"/>
-                <constraint firstItem="c1F-6E-b1B" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ykO-oj-rYj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -55,10 +55,8 @@ class PopUpCalendarViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            sender.setTitle("Done", for: .normal)
             view.addSubview(calendarPopup)
         } else {
-            sender.setTitle("Select Day", for: .normal)
             calendarPopup.removeFromSuperview()
         }
     }
