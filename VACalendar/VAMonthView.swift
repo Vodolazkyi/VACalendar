@@ -61,6 +61,8 @@ class VAMonthView: UIView {
         self.showDaysOut = showDaysOut
         self.weekHeight = weekHeight
         super.init(frame: .zero)
+        
+        backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {

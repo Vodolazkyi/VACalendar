@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "VACalendar.h"
 
 FOUNDATION_EXPORT double VACalendarVersionNumber;
 FOUNDATION_EXPORT const unsigned char VACalendarVersionString[];

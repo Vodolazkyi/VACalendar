@@ -14,6 +14,10 @@
 		60086D9A204C72EC002097E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60086D98204C72EC002097E7 /* LaunchScreen.storyboard */; };
 		60086DA2204C8D5F002097E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60086DA1204C8D5F002097E7 /* Main.storyboard */; };
 		608A2CB52052B26900F3790F /* HorizontalCalendarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608A2CB42052B26900F3790F /* HorizontalCalendarController.swift */; };
+		609D49C3208254E2005868CD /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609D49C2208254E2005868CD /* View.swift */; };
+		60FFF57B2065581400A30314 /* PopUpCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FFF57A2065581400A30314 /* PopUpCalendarViewController.swift */; };
+		60FFF57F206559DF00A30314 /* CalendarPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FFF57E206559DF00A30314 /* CalendarPopUpView.swift */; };
+		60FFF58220655A0D00A30314 /* CalendarPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60FFF58120655A0D00A30314 /* CalendarPopUpView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		60086D9B204C72EC002097E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60086DA1204C8D5F002097E7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		608A2CB42052B26900F3790F /* HorizontalCalendarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCalendarController.swift; sourceTree = "<group>"; };
+		609D49C2208254E2005868CD /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		60FFF57A2065581400A30314 /* PopUpCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCalendarViewController.swift; sourceTree = "<group>"; };
+		60FFF57E206559DF00A30314 /* CalendarPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPopUpView.swift; sourceTree = "<group>"; };
+		60FFF58120655A0D00A30314 /* CalendarPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarPopUpView.xib; sourceTree = "<group>"; };
 		689EC01A8A7FE93E3C3D42E9 /* Pods_VACalendarExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VACalendarExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C9D39CA6A8A31962E82AAF /* Pods-VACalendarExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VACalendarExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-VACalendarExample/Pods-VACalendarExample.release.xcconfig"; sourceTree = "<group>"; };
 		FBC5EC136A0D46F2A18BCC8A /* Pods-VACalendarExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VACalendarExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VACalendarExample/Pods-VACalendarExample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,12 +74,40 @@
 				60086D8F204C72EC002097E7 /* AppDelegate.swift */,
 				60086D91204C72EC002097E7 /* VerticalCalendarController.swift */,
 				608A2CB42052B26900F3790F /* HorizontalCalendarController.swift */,
+				60FFF57A2065581400A30314 /* PopUpCalendarViewController.swift */,
+				60FFF580206559F600A30314 /* CalendarPopUpView */,
+				609D49C1208254D2005868CD /* Common */,
 				60086D96204C72EC002097E7 /* Assets.xcassets */,
 				60086DA1204C8D5F002097E7 /* Main.storyboard */,
 				60086D98204C72EC002097E7 /* LaunchScreen.storyboard */,
 				60086D9B204C72EC002097E7 /* Info.plist */,
 			);
 			path = VACalendarExample;
+			sourceTree = "<group>";
+		};
+		609D49C0208254BF005868CD /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				609D49C2208254E2005868CD /* View.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		609D49C1208254D2005868CD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				609D49C0208254BF005868CD /* Extentions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		60FFF580206559F600A30314 /* CalendarPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				60FFF58120655A0D00A30314 /* CalendarPopUpView.xib */,
+				60FFF57E206559DF00A30314 /* CalendarPopUpView.swift */,
+			);
+			path = CalendarPopUpView;
 			sourceTree = "<group>";
 		};
 		A7D1E68825ED526303E816D4 /* Frameworks */ = {
@@ -156,6 +192,7 @@
 				60086DA2204C8D5F002097E7 /* Main.storyboard in Resources */,
 				60086D9A204C72EC002097E7 /* LaunchScreen.storyboard in Resources */,
 				60086D97204C72EC002097E7 /* Assets.xcassets in Resources */,
+				60FFF58220655A0D00A30314 /* CalendarPopUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +259,10 @@
 			files = (
 				60086D92204C72EC002097E7 /* VerticalCalendarController.swift in Sources */,
 				608A2CB52052B26900F3790F /* HorizontalCalendarController.swift in Sources */,
+				609D49C3208254E2005868CD /* View.swift in Sources */,
+				60FFF57F206559DF00A30314 /* CalendarPopUpView.swift in Sources */,
 				60086D90204C72EC002097E7 /* AppDelegate.swift in Sources */,
+				60FFF57B2065581400A30314 /* PopUpCalendarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

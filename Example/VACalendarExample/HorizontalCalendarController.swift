@@ -13,7 +13,11 @@ final class HorizontalCalendarController: UIViewController {
     
     @IBOutlet weak var monthHeaderView: VAMonthHeaderView! {
         didSet {
-            let appereance = VAMonthHeaderViewAppearance(previousButtonImage: #imageLiteral(resourceName: "previous"), nextButtonImage: #imageLiteral(resourceName: "next"))
+            let appereance = VAMonthHeaderViewAppearance(
+                previousButtonImage: #imageLiteral(resourceName: "previous"),
+                nextButtonImage: #imageLiteral(resourceName: "next"),
+                dateFormat: "LLLL"
+            )
             monthHeaderView.delegate = self
             monthHeaderView.appearance = appereance
         }
@@ -40,11 +44,12 @@ final class HorizontalCalendarController: UIViewController {
         
         let calendar = VACalendar(calendar: defaultCalendar)
         calendarView = VACalendarView(frame: CGRect(
-            x: 0, y: weekDaysView.frame.maxY,
+            x: 0,
+            y: weekDaysView.frame.maxY,
             width: view.frame.width,
             height: view.frame.height * 0.6
         ), calendar: calendar)
-        
+
         calendarView.showDaysOut = true
         calendarView.selectionStyle = .multi
         calendarView.monthDelegate = monthHeaderView
@@ -115,7 +120,7 @@ extension HorizontalCalendarController: VADayViewAppearanceDelegate {
         }
     }
     
-    func backgroundColor(for state: VADayState) -> UIColor {
+    func textBackgroundColor(for state: VADayState) -> UIColor {
         switch state {
         case .selected:
             return .red

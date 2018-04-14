@@ -29,10 +29,21 @@ final class VerticalCalendarController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyy"
         
-        let calendar = VACalendar(calendar: defaultCalendar)
+        let startDate = formatter.date(from: "01.01.2015")!
+        let endDate = formatter.date(from: "01.01.2021")!
+        
+        let calendar = VACalendar(
+            startDate: startDate,
+            endDate: endDate,
+            calendar: defaultCalendar
+        )
         calendarView = VACalendarView(frame: CGRect(
-            x: 0, y: weekDaysView.frame.maxY,
+            x: 0,
+            y: weekDaysView.frame.maxY,
             width: view.frame.width,
             height: view.frame.height - weekDaysView.frame.maxY
         ), calendar: calendar)
@@ -94,7 +105,7 @@ extension VerticalCalendarController: VADayViewAppearanceDelegate {
         }
     }
     
-    func backgroundColor(for state: VADayState) -> UIColor {
+    func textBackgroundColor(for state: VADayState) -> UIColor {
         switch state {
         case .selected:
             return .red

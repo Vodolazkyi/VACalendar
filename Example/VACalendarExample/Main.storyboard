@@ -69,6 +69,29 @@
                                             <segue destination="iPI-Dw-LbN" kind="show" id="PMF-Yr-5au"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="100" id="diZ-IB-pbV">
+                                        <rect key="frame" x="0.0" y="200" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="diZ-IB-pbV" id="Go8-6J-4ig">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop up Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqJ-Cc-t72">
+                                                    <rect key="frame" x="20" y="34" width="178.5" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SqJ-Cc-t72" firstAttribute="centerY" secondItem="Go8-6J-4ig" secondAttribute="centerY" id="LFO-vX-0Je"/>
+                                                <constraint firstItem="SqJ-Cc-t72" firstAttribute="leading" secondItem="Go8-6J-4ig" secondAttribute="leading" constant="20" id="sU0-Ap-hZY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5Jc-OE-Xtz" kind="show" id="cbd-1u-Ddi"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -183,6 +206,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILi-hv-Ro4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-756" y="34"/>
+        </scene>
+        <!--Pop up Calendar-->
+        <scene sceneID="YC4-gQ-DTJ">
+            <objects>
+                <viewController id="5Jc-OE-Xtz" customClass="PopUpCalendarViewController" customModule="VACalendarExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uWr-IC-XiX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon 14 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ay-oB-FJH">
+                                <rect key="frame" x="20" y="99" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="MYh-OR-Rfv"/>
+                                    <constraint firstAttribute="height" constant="40" id="PmT-7e-Elq"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="AL3-Bx-KYD"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehL-ha-ycf">
+                                <rect key="frame" x="240" y="96.5" width="100" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="FVA-Pr-b3Y"/>
+                                    <constraint firstAttribute="width" constant="100" id="QP4-Mo-kkg"/>
+                                </constraints>
+                                <state key="normal" title="Select Day"/>
+                                <connections>
+                                    <action selector="didTapSelectDay:" destination="5Jc-OE-Xtz" eventType="touchUpInside" id="Ub6-fD-Upd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Ay-oB-FJH" firstAttribute="leading" secondItem="6et-cJ-RnC" secondAttribute="leading" constant="20" id="GYT-u8-4Oh"/>
+                            <constraint firstItem="8Ay-oB-FJH" firstAttribute="top" secondItem="6et-cJ-RnC" secondAttribute="top" constant="35" id="NwV-84-1Vs"/>
+                            <constraint firstItem="ehL-ha-ycf" firstAttribute="centerY" secondItem="8Ay-oB-FJH" secondAttribute="centerY" id="bFH-LG-sNK"/>
+                            <constraint firstItem="ehL-ha-ycf" firstAttribute="leading" secondItem="8Ay-oB-FJH" secondAttribute="trailing" constant="20" id="lwJ-LB-155"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6et-cJ-RnC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pop up Calendar" id="LMi-CT-Rtx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="jue-et-RBA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dayLabel" destination="8Ay-oB-FJH" id="dOv-4E-O1E"/>
+                        <outlet property="showCalendarButton" destination="ehL-ha-ycf" id="VMb-WT-XIq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LNg-so-lhO" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="1144.6776611694154"/>
         </scene>
     </scenes>
 </document>

@@ -109,10 +109,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 60086D65204C707A002097E7 /* Build configuration list for PBXNativeTarget "VACalendar" */;
 			buildPhases = (
-				60086D58204C707A002097E7 /* Sources */,
-				60086D59204C707A002097E7 /* Frameworks */,
 				60086D5A204C707A002097E7 /* Headers */,
+				60086D58204C707A002097E7 /* Sources */,
 				60086D5B204C707A002097E7 /* Resources */,
+				60086D59204C707A002097E7 /* Frameworks */,
 			);
 			buildRules = (
 			);
