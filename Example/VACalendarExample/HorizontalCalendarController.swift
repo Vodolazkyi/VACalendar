@@ -67,6 +67,10 @@ final class HorizontalCalendarController: UIViewController {
         view.addSubview(calendarView)
     }
     
+    @IBAction func changeMode(_ sender: Any) {
+        calendarView.changeViewType()
+    }
+    
 }
 
 extension HorizontalCalendarController: VAMonthHeaderViewDelegate {
