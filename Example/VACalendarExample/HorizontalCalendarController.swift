@@ -43,13 +43,7 @@ final class HorizontalCalendarController: UIViewController {
         super.viewDidLoad()
         
         let calendar = VACalendar(calendar: defaultCalendar)
-        calendarView = VACalendarView(frame: CGRect(
-            x: 0,
-            y: weekDaysView.frame.maxY,
-            width: view.frame.width,
-            height: view.frame.height * 0.6
-        ), calendar: calendar)
-
+        calendarView = VACalendarView(frame: .zero, calendar: calendar)
         calendarView.showDaysOut = true
         calendarView.selectionStyle = .multi
         calendarView.monthDelegate = monthHeaderView
@@ -57,7 +51,6 @@ final class HorizontalCalendarController: UIViewController {
         calendarView.monthViewAppearanceDelegate = self
         calendarView.calendarDelegate = self
         calendarView.scrollDirection = .horizontal
-        calendarView.setup()
         calendarView.setSupplementaries([
             (Date().addingTimeInterval(-(60 * 60 * 70)), [VADaySupplementary.bottomDots([.red, .magenta])]),
             (Date().addingTimeInterval((60 * 60 * 110)), [VADaySupplementary.bottomDots([.red])]),
@@ -65,6 +58,24 @@ final class HorizontalCalendarController: UIViewController {
             (Date().addingTimeInterval((60 * 60 * 430)), [VADaySupplementary.bottomDots([.orange, .purple, .cyan])])
             ])
         view.addSubview(calendarView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if calendarView.frame == .zero {
+            calendarView.frame = CGRect(
+                x: 0,
+                y: weekDaysView.frame.maxY,
+                width: view.frame.width,
+                height: view.frame.height * 0.6
+            )
+            calendarView.setup()
+        }
+    }
+    
+    @IBAction func changeMode(_ sender: Any) {
+        calendarView.changeViewType()
     }
     
 }
@@ -147,6 +158,7 @@ extension HorizontalCalendarController: VADayViewAppearanceDelegate {
 extension HorizontalCalendarController: VACalendarViewDelegate {
     
     func selectedDates(_ dates: [Date]) {
+        calendarView.startDate = dates.last ?? Date()
         print(dates)
     }
     

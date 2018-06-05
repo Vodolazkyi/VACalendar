@@ -1,5 +1,5 @@
 PODS:
-  - VACalendar (1.1.4)
+  - VACalendar (1.1.6)
 
 DEPENDENCIES:
   - VACalendar (from `/Users/vodolazkyi/Desktop/VACalendar`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: /Users/vodolazkyi/Desktop/VACalendar
 
 SPEC CHECKSUMS:
-  VACalendar: 93c9ad432717e955748adae82df8205f0385c743
+  VACalendar: 1eb63ce53d53b9a229a774782e6994896366b45d
 
-PODFILE CHECKSUM: a177dcdf623c478edab6f8c7d91681b78d777b33
+PODFILE CHECKSUM: 0fe24206b9c08d68d5313b9c67832f57a3360189
 
 COCOAPODS: 1.4.0
