@@ -41,20 +41,13 @@ final class VerticalCalendarController: UIViewController {
             endDate: endDate,
             calendar: defaultCalendar
         )
-        calendarView = VACalendarView(frame: CGRect(
-            x: 0,
-            y: weekDaysView.frame.maxY,
-            width: view.frame.width,
-            height: view.frame.height - weekDaysView.frame.maxY
-        ), calendar: calendar)
-        
+        calendarView = VACalendarView(frame: .zero, calendar: calendar)
         calendarView.showDaysOut = false
         calendarView.selectionStyle = .single
         calendarView.dayViewAppearanceDelegate = self
         calendarView.monthViewAppearanceDelegate = self
         calendarView.calendarDelegate = self
         calendarView.scrollDirection = .vertical
-        calendarView.setup()
         calendarView.setSupplementaries([
             (Date().addingTimeInterval(-(60 * 60 * 70)), [VADaySupplementary.bottomDots([.red, .magenta])]),
             (Date().addingTimeInterval((60 * 60 * 110)), [VADaySupplementary.bottomDots([.red])]),
@@ -62,6 +55,20 @@ final class VerticalCalendarController: UIViewController {
             (Date().addingTimeInterval((60 * 60 * 430)), [VADaySupplementary.bottomDots([.orange, .purple, .cyan])])
             ])
         view.addSubview(calendarView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if calendarView.frame == .zero {
+            calendarView.frame = CGRect(
+                x: 0,
+                y: weekDaysView.frame.maxY,
+                width: view.frame.width,
+                height: view.frame.height - weekDaysView.frame.maxY
+            )
+            calendarView.setup()
+        }
     }
     
 }

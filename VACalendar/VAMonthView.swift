@@ -39,6 +39,10 @@ class VAMonthView: UIView {
         return (superview as? VACalendarView)?.monthVerticalHeaderHeight ?? 0.0
     }
     
+    var superviewWidth: CGFloat {
+        return superview?.frame.width ?? 0
+    }
+    
     weak var monthViewAppearanceDelegate: VAMonthViewAppearanceDelegate? {
         return (superview as? VACalendarView)?.monthViewAppearanceDelegate
     }
@@ -99,6 +103,10 @@ class VAMonthView: UIView {
         subviews.forEach { $0.removeFromSuperview() }
     }
     
+    func week(with date: Date) -> VAWeekView? {
+        return weekViews.first(where: { $0.contains(date: date) })
+    }
+
     private func draw() {
         let leftInset = monthViewAppearanceDelegate?.leftInset?() ?? 0
         let rightInset = monthViewAppearanceDelegate?.rightInset?() ?? 0
@@ -120,7 +128,7 @@ class VAMonthView: UIView {
                 y = week.frame.maxY
                 
             case .week:
-                let width = (self.superview?.frame.width ?? 0) - (leftInset + rightInset)
+                let width = self.superviewWidth - (leftInset + rightInset)
 
                 week.frame = CGRect(
                     x: x,

@@ -54,6 +54,10 @@ class VAWeekView: UIView {
         }
     }
     
+    func contains(date: Date) -> Bool {
+        return week.dateInThisWeek(date)
+    }
+    
 }
 
 extension VAWeekView: VADayViewDelegate {
