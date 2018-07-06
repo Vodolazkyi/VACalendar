@@ -1,4 +1,4 @@
-# VACalendar
+<p align="center"><img src="Screenshots/logotype.png"></p>
 
 <p>
 <img src="Screenshots/horizontal_calendar.gif" width="30%" height="auto"> <img src="Screenshots/vertical_calendar.gif" width="30%" height="auto" hspace="20">  <img src="Screenshots/pop_up_calendar.gif" width="30%" height="auto">
