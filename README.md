@@ -66,6 +66,41 @@ let defaultCalendar: Calendar = {
     }
 ```
 
+6. Setup `VACalendarView`
+
+```swift
+    var calendarView: VACalendarView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let calendar = VACalendar(calendar: defaultCalendar)
+        calendarView = VACalendarView(frame: .zero, calendar: calendar)
+        calendarView.showDaysOut = true
+        calendarView.selectionStyle = .multi
+        calendarView.monthDelegate = monthHeaderView
+        calendarView.dayViewAppearanceDelegate = self
+        calendarView.monthViewAppearanceDelegate = self
+        calendarView.calendarDelegate = self
+        calendarView.scrollDirection = .horizontal
+        view.addSubview(calendarView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if calendarView.frame == .zero {
+            calendarView.frame = CGRect(
+                x: 0,
+                y: weekDaysView.frame.maxY,
+                width: view.frame.width,
+                height: view.frame.height * 0.6
+            )
+            calendarView.setup()
+        }
+    }
+ ```
+
 ## Requirements
 
 * Swift 4.0
