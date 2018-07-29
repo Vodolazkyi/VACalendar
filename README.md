@@ -15,8 +15,11 @@ The calendar with support for:
 * First weekday sunday or monday
 * Supplementary views
 
+## Example project
+
+Take a look at the example project over [here](Example/)
+
 ## Usage
-Check `Example Folder` to see implementation of all possible variants of calendar.
 
 In order to create calendar with horizontal scroll direction: 
 
@@ -62,10 +65,6 @@ let defaultCalendar: Calendar = {
         }
     }
 ```
-
-## Example project
-
-Take a look at the example project over [here](Example/)
 
 ## Requirements
 
