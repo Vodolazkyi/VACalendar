@@ -1,6 +1,6 @@
 <p align="center"><img src="Screenshots/logotype.png"></p>
 
-# Screenshot
+# Screenshots
 <p>
 <img src="Screenshots/horizontal_calendar.gif" width="30%" height="auto"> <img src="Screenshots/vertical_calendar.gif" width="30%" height="auto" hspace="20">  <img src="Screenshots/pop_up_calendar.gif" width="30%" height="auto">
 </p>
@@ -65,7 +65,7 @@ let defaultCalendar: Calendar = {
 
 ## Example project
 
-Take a look at the example playground over [here](Example/)
+Take a look at the example project over [here](Example/)
 
 ## Requirements
 
