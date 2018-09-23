@@ -92,7 +92,7 @@ class CalendarPopUpView: UIView {
         calendarView.monthDelegate = monthHeaderView
         calendarView.dayViewAppearanceDelegate = self
         calendarView.calendarDelegate = self
-        calendarView.scrollDirection = .horizontal
+        calendarView.scrollDirection = VAHorizontalScrollDirection(calendarView: calendarView)
         calendarView.setup()
         view.addSubview(calendarView)
     }

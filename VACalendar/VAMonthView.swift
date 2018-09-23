@@ -31,14 +31,6 @@ class VAMonthView: UIView {
         return !weekViews.isEmpty
     }
     
-    var scrollDirection: VACalendarScrollDirection {
-        return (superview as? VACalendarView)?.scrollDirection ?? .horizontal
-    }
-    
-    var monthVerticalHeaderHeight: CGFloat {
-        return (superview as? VACalendarView)?.monthVerticalHeaderHeight ?? 0.0
-    }
-    
     var superviewWidth: CGFloat {
         return superview?.frame.width ?? 0
     }
@@ -54,18 +46,16 @@ class VAMonthView: UIView {
     weak var delegate: VAMonthViewDelegate?
 
     let month: VAMonth
-    
+    var monthLabel: UILabel?
+    var weekViews = [VAWeekView]()
+    let weekHeight: CGFloat
+
     private let showDaysOut: Bool
-    private var monthLabel: UILabel?
-    private var weekViews = [VAWeekView]()
-    private let weekHeight: CGFloat
-    private var viewType: VACalendarViewType
     
-    init(month: VAMonth, showDaysOut: Bool, weekHeight: CGFloat, viewType: VACalendarViewType) {
+    init(month: VAMonth, showDaysOut: Bool, weekHeight: CGFloat) {
         self.month = month
         self.showDaysOut = showDaysOut
         self.weekHeight = weekHeight
-        self.viewType = viewType
         
         super.init(frame: .zero)
         
@@ -76,12 +66,10 @@ class VAMonthView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupWeeksView(with type: VACalendarViewType) {
+    func setupWeeksView(with period: VAPeriodType, shouldShowMonthLabel: Bool) {
         guard isDrawn == false else { return }
-    
-        self.viewType = type
         
-        if scrollDirection == .vertical {
+        if shouldShowMonthLabel {
             setupMonthLabel()
         }
 
@@ -94,7 +82,7 @@ class VAMonthView: UIView {
             self.addSubview(weekView)
         }
         
-        draw()
+        draw(for: period)
     }
     
     func clean() {
@@ -107,39 +95,8 @@ class VAMonthView: UIView {
         return weekViews.first(where: { $0.contains(date: date) })
     }
 
-    private func draw() {
-        let leftInset = monthViewAppearanceDelegate?.leftInset?() ?? 0
-        let rightInset = monthViewAppearanceDelegate?.rightInset?() ?? 0
-        let initialOffsetY = self.monthLabel?.frame.maxY ?? 0
-        let weekViewWidth = self.frame.width - (leftInset + rightInset)
-        
-        var x: CGFloat = leftInset
-        var y: CGFloat = initialOffsetY
-
-        weekViews.enumerated().forEach { index, week in
-            switch viewType {
-            case .month:
-                week.frame = CGRect(
-                    x: leftInset,
-                    y: y,
-                    width: weekViewWidth,
-                    height: self.weekHeight
-                )
-                y = week.frame.maxY
-                
-            case .week:
-                let width = self.superviewWidth - (leftInset + rightInset)
-
-                week.frame = CGRect(
-                    x: x,
-                    y: initialOffsetY,
-                    width: width,
-                    height: self.weekHeight
-                )
-                x = week.frame.maxX + (leftInset + rightInset)
-            }
-            week.setupDays()
-        }
+    private func draw(for period: VAPeriodType) {
+        period.drawWeeks(in: self)
     }
     
     private func setupMonthLabel() {

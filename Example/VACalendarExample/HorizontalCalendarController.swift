@@ -50,7 +50,7 @@ final class HorizontalCalendarController: UIViewController {
         calendarView.dayViewAppearanceDelegate = self
         calendarView.monthViewAppearanceDelegate = self
         calendarView.calendarDelegate = self
-        calendarView.scrollDirection = .horizontal
+        calendarView.scrollDirection = VAHorizontalScrollDirection(calendarView: calendarView)
         calendarView.setSupplementaries([
             (Date().addingTimeInterval(-(60 * 60 * 70)), [VADaySupplementary.bottomDots([.red, .magenta])]),
             (Date().addingTimeInterval((60 * 60 * 110)), [VADaySupplementary.bottomDots([.red])]),

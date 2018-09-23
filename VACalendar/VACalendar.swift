@@ -47,7 +47,7 @@ public class VACalendar {
         let endDate = endDate ?? calendar.date(byAdding: .year, value: 1, to: Date())!
         months = generateMonths(from: startDate, endDate: endDate)
     }
-    
+
     func selectDay(_ day: VADay) {
         months.first(where: { $0.dateInThisMonth(day.date) })?.setDaySelectionState(day, state:.selected)
         selectedDays = [day]
