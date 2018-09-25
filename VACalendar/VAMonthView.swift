@@ -19,6 +19,7 @@ public protocol VAMonthViewAppearanceDelegate: class {
     @objc optional func verticalMonthTitleFont() -> UIFont
     @objc optional func verticalMonthTitleColor() -> UIColor
     @objc optional func verticalCurrentMonthTitleColor() -> UIColor
+    @objc optional func verticalMonthDateFormater() -> DateFormatter
 }
 
 class VAMonthView: UIView {
@@ -145,9 +146,10 @@ class VAMonthView: UIView {
     private func setupMonthLabel() {
         let textColor = month.isCurrent ? monthViewAppearanceDelegate?.verticalCurrentMonthTitleColor?() :
             monthViewAppearanceDelegate?.verticalMonthTitleColor?()
+				let textFormatter = monthViewAppearanceDelegate?.verticalMonthDateFormater?() ?? VAFormatters.monthFormatter
         
         monthLabel = UILabel()
-        monthLabel?.text = VAFormatters.monthFormatter.string(from: month.date)
+        monthLabel?.text = textFormatter.string(from: month.date)
         monthLabel?.textColor = textColor ?? monthLabel?.textColor
         monthLabel?.font = monthViewAppearanceDelegate?.verticalMonthTitleFont?() ?? monthLabel?.font
         monthLabel?.sizeToFit()
