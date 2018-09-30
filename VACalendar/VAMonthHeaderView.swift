@@ -12,7 +12,13 @@ public struct VAMonthHeaderViewAppearance {
     let monthTextWidth: CGFloat
     let previousButtonImage: UIImage
     let nextButtonImage: UIImage
-    let dateFormat: String
+    let dateFormatter: DateFormatter
+    
+    static public let defaultFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        return formatter
+    }()
     
     public init(
         monthFont: UIFont = UIFont.systemFont(ofSize: 21),
@@ -20,13 +26,13 @@ public struct VAMonthHeaderViewAppearance {
         monthTextWidth: CGFloat = 150,
         previousButtonImage: UIImage = UIImage(),
         nextButtonImage: UIImage = UIImage(),
-        dateFormat: String = "MMMM") {
+        dateFormatter: DateFormatter = VAMonthHeaderViewAppearance.defaultFormatter) {
         self.monthFont = monthFont
         self.monthTextColor = monthTextColor
         self.monthTextWidth = monthTextWidth
         self.previousButtonImage = previousButtonImage
         self.nextButtonImage = nextButtonImage
-        self.dateFormat = dateFormat
+        self.dateFormatter = dateFormatter
     }
     
 }
@@ -35,19 +41,14 @@ public class VAMonthHeaderView: UIView {
     
     public var appearance = VAMonthHeaderViewAppearance() {
         didSet {
-            formatter.dateFormat = appearance.dateFormat
+            dateFormatter = appearance.dateFormatter
             setupView()
         }
     }
     
     public weak var delegate: VAMonthHeaderViewDelegate?
     
-    private lazy var formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = appearance.dateFormat
-        return formatter
-    }()
-    
+    private var dateFormatter = DateFormatter()
     private let monthLabel = UILabel()
     private let previousButton = UIButton()
     private let nextButton = UIButton()
@@ -110,7 +111,7 @@ public class VAMonthHeaderView: UIView {
 extension VAMonthHeaderView: VACalendarMonthDelegate {
     
     public func monthDidChange(_ currentMonth: Date) {
-        monthLabel.text = formatter.string(from: currentMonth)
+        monthLabel.text = dateFormatter.string(from: currentMonth)
     }
     
 }

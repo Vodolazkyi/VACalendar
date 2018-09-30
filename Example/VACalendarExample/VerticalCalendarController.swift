@@ -95,6 +95,12 @@ extension VerticalCalendarController: VAMonthViewAppearanceDelegate {
         return .red
     }
     
+    func verticalMonthDateFormater() -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        return dateFormatter
+    }
+    
 }
 
 extension VerticalCalendarController: VADayViewAppearanceDelegate {

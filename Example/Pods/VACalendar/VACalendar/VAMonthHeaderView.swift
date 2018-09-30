@@ -14,7 +14,7 @@ public struct VAMonthHeaderViewAppearance {
     let nextButtonImage: UIImage
     let dateFormat: String
     
-    init(
+    public init(
         monthFont: UIFont = UIFont.systemFont(ofSize: 21),
         monthTextColor: UIColor = UIColor.black,
         monthTextWidth: CGFloat = 150,
@@ -44,6 +44,7 @@ public class VAMonthHeaderView: UIView {
     
     private lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
+        
         formatter.dateFormat = appearance.dateFormat
         return formatter
     }()
@@ -80,6 +81,7 @@ public class VAMonthHeaderView: UIView {
         backgroundColor = .white
         monthLabel.font = appearance.monthFont
         monthLabel.textAlignment = .center
+        monthLabel.textColor = appearance.monthTextColor
         
         previousButton.setImage(appearance.previousButtonImage, for: .normal)
         previousButton.addTarget(self, action: #selector(didTapPrevious(_:)), for: .touchUpInside)

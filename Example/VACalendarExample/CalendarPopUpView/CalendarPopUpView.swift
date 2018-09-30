@@ -13,12 +13,15 @@ class CalendarPopUpView: UIView {
     
     @IBOutlet weak var monthHeaderView: VAMonthHeaderView! {
         didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy LLLL"
+            
             let appereance = VAMonthHeaderViewAppearance(
                 monthFont: UIFont.systemFont(ofSize: 16),
                 monthTextWidth: 200,
                 previousButtonImage: #imageLiteral(resourceName: "previous"),
                 nextButtonImage: #imageLiteral(resourceName: "next"),
-                dateFormat: "yyyy LLLL"
+                dateFormatter: dateFormatter
             )
             monthHeaderView.delegate = self
             monthHeaderView.appearance = appereance
