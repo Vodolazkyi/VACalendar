@@ -107,7 +107,7 @@ let defaultCalendar: Calendar = {
 Version 1.0
 * Release version.
 
-Version 1.2
+Version 1.3
 * Added ability to define own date format for VAMonthView's month header by [@spase84](https://github.com/spase84)
 * Localization 
 * Swift 4.2
