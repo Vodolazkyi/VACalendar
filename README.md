@@ -5,7 +5,7 @@
 <img src="Screenshots/horizontal_calendar.gif" width="30%" height="auto"> <img src="Screenshots/vertical_calendar.gif" width="30%" height="auto" hspace="20">  <img src="Screenshots/pop_up_calendar.gif" width="30%" height="auto">
 </p>
 
-## About
+## About ![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
 
 The calendar with support for:
 
@@ -14,6 +14,7 @@ The calendar with support for:
 * Single and multi days selection
 * First weekday sunday or monday
 * Supplementary views
+* Localization
 
 ## Example project
 
@@ -100,6 +101,17 @@ let defaultCalendar: Calendar = {
         }
     }
  ```
+
+## Release Notes
+
+Version 1.0
+    * Release version.
+
+Version 1.2
+    * Added ability to define own date format for VAMonthView's month header by @spase84
+    * Localization 
+    * Swift 4.2
+
 
 ## Requirements
 
