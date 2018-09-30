@@ -13,12 +13,15 @@ class CalendarPopUpView: UIView {
     
     @IBOutlet weak var monthHeaderView: VAMonthHeaderView! {
         didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy LLLL"
+            
             let appereance = VAMonthHeaderViewAppearance(
                 monthFont: UIFont.systemFont(ofSize: 16),
                 monthTextWidth: 200,
                 previousButtonImage: #imageLiteral(resourceName: "previous"),
                 nextButtonImage: #imageLiteral(resourceName: "next"),
-                dateFormat: "yyyy LLLL"
+                dateFormatter: dateFormatter
             )
             monthHeaderView.delegate = self
             monthHeaderView.appearance = appereance
@@ -100,7 +103,7 @@ class CalendarPopUpView: UIView {
     private func setupXib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view = (nib.instantiate(withOwner: self, options: nil)[0] as! UIView)
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)

@@ -12,7 +12,10 @@ import UIKit
 public protocol VADayViewAppearanceDelegate: class {
     @objc optional func font(for state: VADayState) -> UIFont
     @objc optional func textColor(for state: VADayState) -> UIColor
+    @objc optional func textBackgroundColor(for state: VADayState) -> UIColor
     @objc optional func backgroundColor(for state: VADayState) -> UIColor
+    @objc optional func borderWidth(for state: VADayState) -> CGFloat
+    @objc optional func borderColor(for state: VADayState) -> UIColor
     @objc optional func dotBottomVerticalOffset(for state: VADayState) -> CGFloat
     @objc optional func shape() -> VADayShape
     // percent of the selected area to be painted
@@ -66,12 +69,11 @@ class VADayView: UIView {
     }
     
     func setupDay() {
-        let shortestSide = (frame.width < frame.height ? frame.width : frame.height)
-        let side = shortestSide * (dayViewAppearanceDelegate?.selectedArea?() ?? 0.8)
+        let shortestSide: CGFloat = (frame.width < frame.height ? frame.width : frame.height)
+        let side: CGFloat = shortestSide * (dayViewAppearanceDelegate?.selectedArea?() ?? 0.8)
         
         dateLabel.font = dayViewAppearanceDelegate?.font?(for: day.state) ?? dateLabel.font
         dateLabel.text = VAFormatters.dayFormatter.string(from: day.date)
-        dateLabel.clipsToBounds = true
         dateLabel.textAlignment = .center
         dateLabel.frame = CGRect(
             x: 0,
@@ -80,10 +82,6 @@ class VADayView: UIView {
             height: side
         )
         dateLabel.center = CGPoint(x: frame.width / 2, y: frame.height / 2)
-        
-        if dayViewAppearanceDelegate?.shape?() == .circle {
-            dateLabel.layer.cornerRadius = side / 2
-        }
 
         setState(day.state)
         addSubview(dateLabel)
@@ -97,8 +95,17 @@ class VADayView: UIView {
     }
     
     private func setState(_ state: VADayState) {
+        backgroundColor = dayViewAppearanceDelegate?.backgroundColor?(for: state) ?? backgroundColor
+        layer.borderColor = dayViewAppearanceDelegate?.borderColor?(for: state).cgColor ?? layer.borderColor
+        layer.borderWidth = dayViewAppearanceDelegate?.borderWidth?(for: state) ?? dateLabel.layer.borderWidth
         dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: state) ?? dateLabel.textColor
-        dateLabel.backgroundColor = dayViewAppearanceDelegate?.backgroundColor?(for: state) ?? dateLabel.backgroundColor
+        dateLabel.backgroundColor = dayViewAppearanceDelegate?.textBackgroundColor?(for: state) ?? dateLabel.backgroundColor
+        
+        if dayViewAppearanceDelegate?.shape?() == .circle && state == .selected {
+            dateLabel.clipsToBounds = true
+            dateLabel.layer.cornerRadius = dateLabel.frame.height / 2
+        }
+        
         updateSupplementaryViews()
     }
     

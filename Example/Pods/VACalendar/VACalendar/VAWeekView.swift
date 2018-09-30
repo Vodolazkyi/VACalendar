@@ -28,6 +28,8 @@ class VAWeekView: UIView {
         self.week = week
         self.showDaysOut = showDaysOut
         super.init(frame: .zero)
+        
+        backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +52,10 @@ class VAWeekView: UIView {
                 dayView.setupDay()
             }
         }
+    }
+    
+    func contains(date: Date) -> Bool {
+        return week.dateInThisWeek(date)
     }
     
 }

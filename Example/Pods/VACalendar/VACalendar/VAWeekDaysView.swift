@@ -24,7 +24,7 @@ public struct VAWeekDaysViewAppearance {
     let separatorBackgroundColor: UIColor
     let calendar: Calendar
     
-    init(
+    public init(
         symbolsType: VAWeekDaysSymbolsType = .veryShort,
         weekDayTextColor: UIColor = .black,
         weekDayTextFont: UIFont = UIFont.systemFont(ofSize: 15),
@@ -45,7 +45,7 @@ public struct VAWeekDaysViewAppearance {
 
 public class VAWeekDaysView: UIView {
     
-    private var appearance = VAWeekDaysViewAppearance() {
+    public var appearance = VAWeekDaysViewAppearance() {
         didSet {
             setupView()
         }
