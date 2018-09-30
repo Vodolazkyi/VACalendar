@@ -130,8 +130,12 @@ extension VerticalCalendarController: VADayViewAppearanceDelegate {
         case .selected:
             return 2
         default:
-            return -7
+            return -2
         }
+    }
+    
+    func font(for state: VADayState) -> UIFont {
+        return UIFont.systemFont(ofSize: 8)
     }
     
 }

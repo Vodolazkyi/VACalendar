@@ -9,13 +9,7 @@ import UIKit
 
 public class VAHorizontalScrollDirection: VACalendarScrollDirection {
     
-    private let maxNumberOfWeek = 6
-    
-    override var weekHeight: CGFloat {
-        return calendarView.frame.height / CGFloat(maxNumberOfWeek)
-    }
-    
-    public override init(calendarView: VACalendarView, periodType: VAPeriodType = VAMonthPeriodType()) {
+    public override init(calendarView: VACalendarView, periodType: VAPeriodType = VAHorizontalMonthPeriodType()) {
         calendarView.isPagingEnabled = true
         super.init(calendarView: calendarView, periodType: periodType)
     }
@@ -47,22 +41,10 @@ public class VAHorizontalScrollDirection: VACalendarScrollDirection {
     }
     
     override func changeViewType() {
-        periodType = periodType.nextPeriod()
+        periodType = periodType.changePeriodType()
         calculateContentSize()
         drawMonths()
         calendarView.scrollToStartDate()
-    }
-    
-    override func calculateContentSize() {
-        calendarView.contentSize = periodType.calculateContentSize(for: calendarView)
-    }
-    
-    override func drawMonths() {
-        periodType.drawMonths(in: calendarView)
-    }
-    
-    override func getMonthView(with offset: CGPoint) -> VAMonthView? {
-        return periodType.getMonthView(in: calendarView, offset: offset)
     }
     
     override func drawMonth(_ month: VAMonthView?) {

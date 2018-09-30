@@ -7,7 +7,9 @@
 
 import UIKit
 
-public class VAMonthPeriodType: VAPeriodType {
+public class VAHorizontalMonthPeriodType: VAPeriodType {
+    
+    private let maxNumberOfWeek: CGFloat = 6
     
     override func calculateContentSize(for calendarView: VACalendarView) -> CGSize {
         let width = calendarView.frame.width * CGFloat(calendarView.calendar.months.count)
@@ -26,11 +28,12 @@ public class VAMonthPeriodType: VAPeriodType {
         return calendarView.monthViews.first(where: { $0.frame.midX >= offset.x })
     }
     
-    override func nextPeriod() -> VAPeriodType {
+    override func changePeriodType() -> VAPeriodType {
         return VAWeekPeriodType()
     }
     
     override func drawWeeks(in monthView: VAMonthView) {
+        let weekHeight = monthView.frame.height / maxNumberOfWeek
         let leftInset = monthView.monthViewAppearanceDelegate?.leftInset?() ?? 0
         let rightInset = monthView.monthViewAppearanceDelegate?.rightInset?() ?? 0
         let initialOffsetY = monthView.monthLabel?.frame.maxY ?? 0
@@ -44,7 +47,7 @@ public class VAMonthPeriodType: VAPeriodType {
                 x: leftInset,
                 y: y,
                 width: weekViewWidth,
-                height: monthView.weekHeight
+                height: weekHeight
             )
             y = week.frame.maxY
             week.setupDays()

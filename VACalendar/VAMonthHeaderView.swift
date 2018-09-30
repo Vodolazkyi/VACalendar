@@ -75,7 +75,7 @@ public class VAMonthHeaderView: UIView {
     }
     
     private func setupView() {
-        subviews.forEach{ $0.removeFromSuperview() }
+        subviews.forEach { $0.removeFromSuperview() }
         
         backgroundColor = .white
         monthLabel.font = appearance.monthFont

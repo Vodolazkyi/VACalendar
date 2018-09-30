@@ -48,14 +48,12 @@ class VAMonthView: UIView {
     let month: VAMonth
     var monthLabel: UILabel?
     var weekViews = [VAWeekView]()
-    let weekHeight: CGFloat
 
     private let showDaysOut: Bool
     
-    init(month: VAMonth, showDaysOut: Bool, weekHeight: CGFloat) {
+    init(month: VAMonth, showDaysOut: Bool) {
         self.month = month
         self.showDaysOut = showDaysOut
-        self.weekHeight = weekHeight
         
         super.init(frame: .zero)
         
@@ -108,7 +106,7 @@ class VAMonthView: UIView {
         monthLabel?.textColor = textColor ?? monthLabel?.textColor
         monthLabel?.font = monthViewAppearanceDelegate?.verticalMonthTitleFont?() ?? monthLabel?.font
         monthLabel?.sizeToFit()
-        monthLabel?.center.x = center.x
+        monthLabel?.frame.origin.x = (frame.width / 2) - ((monthLabel?.frame.width ?? 0) / 2)
         addSubview(monthLabel ?? UIView())
     }
     

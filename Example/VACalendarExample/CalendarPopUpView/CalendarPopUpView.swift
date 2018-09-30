@@ -11,27 +11,7 @@ import VACalendar
 
 class CalendarPopUpView: UIView {
     
-    @IBOutlet weak var monthHeaderView: VAMonthHeaderView! {
-        didSet {
-            let appereance = VAMonthHeaderViewAppearance(
-                monthFont: UIFont.systemFont(ofSize: 16),
-                monthTextWidth: 200,
-                previousButtonImage: #imageLiteral(resourceName: "previous"),
-                nextButtonImage: #imageLiteral(resourceName: "next"),
-                dateFormat: "yyyy LLLL"
-            )
-            monthHeaderView.delegate = self
-            monthHeaderView.appearance = appereance
-            monthHeaderView.roundCorners([.topLeft, .topRight], radius: 4)
-            let path = UIBezierPath(rect: monthHeaderView.bounds)
-            let border = CAShapeLayer()
-            border.path = path.cgPath
-            border.lineWidth = 0.5
-            border.fillColor = UIColor.clear.cgColor
-            border.strokeColor = UIColor.lightGray.cgColor
-            monthHeaderView.layer.addSublayer(border)
-        }
-    }
+    @IBOutlet weak var monthHeaderView: VAMonthHeaderView!
     
     @IBOutlet weak var weekDaysView: VAWeekDaysView! {
         didSet {
@@ -95,6 +75,26 @@ class CalendarPopUpView: UIView {
         calendarView.scrollDirection = VAHorizontalScrollDirection(calendarView: calendarView)
         calendarView.setup()
         view.addSubview(calendarView)
+        
+        let appereance = VAMonthHeaderViewAppearance(
+            monthFont: UIFont.systemFont(ofSize: 16),
+            monthTextWidth: 150,
+            previousButtonImage: #imageLiteral(resourceName: "previous"),
+            nextButtonImage: #imageLiteral(resourceName: "next"),
+            dateFormat: "yyyy LLLL"
+        )
+        monthHeaderView.layoutSubviews()
+        monthHeaderView.delegate = self
+        monthHeaderView.appearance = appereance
+        view.layoutIfNeeded()
+        monthHeaderView.roundCorners([.topLeft, .topRight], radius: 4)
+        let path = UIBezierPath(rect: monthHeaderView.bounds)
+        let border = CAShapeLayer()
+        border.path = path.cgPath
+        border.lineWidth = 0.5
+        border.fillColor = UIColor.clear.cgColor
+        border.strokeColor = UIColor.lightGray.cgColor
+        monthHeaderView.layer.addSublayer(border)
     }
     
     private func setupXib() {

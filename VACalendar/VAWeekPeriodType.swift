@@ -9,6 +9,8 @@ import UIKit
 
 public class VAWeekPeriodType: VAPeriodType {
     
+    private let maxNumberOfWeek: CGFloat = 6
+    
     override func calculateContentSize(for calendarView: VACalendarView) -> CGSize {
         let width = calendarView.calendar.months.reduce(0) { sum, month -> CGFloat in
             return sum + (CGFloat(month.weeks.count) * calendarView.frame.width)
@@ -17,11 +19,13 @@ public class VAWeekPeriodType: VAPeriodType {
     }
     
     override func drawMonths(in calendarView: VACalendarView) {
+        let monthHeight = calendarView.frame.height / maxNumberOfWeek
+        
         calendarView.monthViews.forEach { $0.clean() }
         calendarView.monthViews.enumerated().forEach { index, monthView in
             let x = index == 0 ? 0 : calendarView.monthViews[index - 1].frame.maxX
             let monthWidth = calendarView.frame.width * CGFloat(monthView.numberOfWeeks)
-            monthView.frame = CGRect(x: x, y: 0, width: monthWidth, height: calendarView.frame.height)
+            monthView.frame = CGRect(x: x, y: 0, width: monthWidth, height: monthHeight)
         }
     }
     
@@ -30,8 +34,8 @@ public class VAWeekPeriodType: VAPeriodType {
         return calendarView.monthViews.first(where: { $0.frame.intersects(rect) })
     }
     
-    override func nextPeriod() -> VAPeriodType {
-        return VAMonthPeriodType()
+    override func changePeriodType() -> VAPeriodType {
+        return VAHorizontalMonthPeriodType()
     }
     
     override func drawWeeks(in monthView: VAMonthView) {
@@ -50,7 +54,7 @@ public class VAWeekPeriodType: VAPeriodType {
                 x: x,
                 y: initialOffsetY,
                 width: width,
-                height: monthView.weekHeight
+                height: monthView.frame.height
             )
             x = week.frame.maxX + (leftInset + rightInset)
             week.setupDays()

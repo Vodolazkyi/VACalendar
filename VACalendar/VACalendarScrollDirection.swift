@@ -9,10 +9,6 @@ import Foundation
 
 public class VACalendarScrollDirection {
     
-    var weekHeight: CGFloat {
-        return 0.0
-    }
-    
     unowned let calendarView: VACalendarView
     var periodType: VAPeriodType
     
@@ -24,12 +20,20 @@ public class VACalendarScrollDirection {
     func nextMonth() {}
     func previousMonth() {}
     func changeViewType() {}
-    func calculateContentSize() {}
-    func drawMonths() {}
-    func getMonthView(with offset: CGPoint) -> VAMonthView? {
-        return nil
-    }
     func drawMonth(_ month: VAMonthView?) {}
+
+    func getMonthView(with offset: CGPoint) -> VAMonthView? {
+        return periodType.getMonthView(in: calendarView, offset: offset)
+    }
+    
+    func drawMonths() {
+        periodType.drawMonths(in: calendarView)
+    }
+    
+    func calculateContentSize() {
+        calendarView.contentSize = periodType.calculateContentSize(for: calendarView)
+    }
+    
     func scrollToMonth(_ month: VAMonthView?) {
         let offset = month?.frame.origin ?? .zero
         calendarView.setContentOffset(offset, animated: false)

@@ -103,8 +103,7 @@ public class VACalendarView: UIScrollView {
         monthViews = calendar.months.map {
             VAMonthView(
                 month: $0,
-                showDaysOut: showDaysOut,
-                weekHeight: scrollDirection.weekHeight
+                showDaysOut: showDaysOut
             )
         }
         monthViews.forEach { addSubview($0) }
