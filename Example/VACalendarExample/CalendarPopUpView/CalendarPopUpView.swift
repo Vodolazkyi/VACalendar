@@ -103,7 +103,7 @@ class CalendarPopUpView: UIView {
     private func setupXib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        view = (nib.instantiate(withOwner: self, options: nil)[0] as! UIView)
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
