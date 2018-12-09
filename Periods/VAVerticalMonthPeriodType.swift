@@ -25,6 +25,10 @@ public class VAVerticalMonthPeriodType: VAPeriodType {
         return CGSize(width: calendarView.frame.width, height: monthsHeight)
     }
     
+    override func changePeriodType() -> VAPeriodType {
+        return VAYearPeriodType(numberOfMonthInRow: 3)
+    }
+    
     override func drawMonths(in calendarView: VACalendarView) {
         let weekHeight = calendarView.frame.width / CGFloat(numberDaysInWeek)
         

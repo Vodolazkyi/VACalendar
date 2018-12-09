@@ -31,6 +31,13 @@ public class VAVerticalScrollDirection: VACalendarScrollDirection {
         }
     }
     
+    override func changeViewType() {
+        periodType = periodType.changePeriodType()
+        calculateContentSize()
+        drawMonths()
+        calendarView.scrollToStartDate()
+    }
+    
     override func scrollToMonth(_ month: VAMonthView?) {
         var offset = month?.frame.origin ?? .zero
         offset.x = 0

@@ -38,6 +38,10 @@ public class VAYearPeriodType: VAPeriodType {
         return CGSize(width: calendarView.contentSize.width, height: monthsHeight)
     }
     
+    override func changePeriodType() -> VAPeriodType {
+        return VAVerticalMonthPeriodType()
+    }
+    
     override func drawMonths(in calendarView: VACalendarView) {
         let weekWidth = calendarView.frame.width / CGFloat(numberOfMonthInRow)
         let weekHeight = (weekWidth / CGFloat(numberDaysInWeek))

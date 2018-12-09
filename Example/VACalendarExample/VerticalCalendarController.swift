@@ -71,6 +71,9 @@ final class VerticalCalendarController: UIViewController {
         }
     }
     
+    @IBAction func changeMode(_ sender: Any) {
+        calendarView.changeViewType()
+    }
 }
 
 extension VerticalCalendarController: VAMonthViewAppearanceDelegate {
