@@ -9,7 +9,7 @@
 import UIKit
 
 public enum VASelectionStyle {
-    case single, multi
+    case single, multi, none
 }
 
 public enum VACalendarScrollDirection {
@@ -291,6 +291,10 @@ extension VACalendarView: VAMonthViewDelegate {
             
         case .multi:
             calendar.setDaySelectionState(day, state: day.reverseSelectionState)
+            
+        case .none:
+            calendarDelegate?.selectedDate?(day.date)
+            break
         }
     }
     
