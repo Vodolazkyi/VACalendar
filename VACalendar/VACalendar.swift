@@ -78,7 +78,7 @@ public class VACalendar {
     func setDaySelectionState(_ day: VADay, state: VADayState) {
         months.first(where: { $0.dateInThisMonth(day.date) })?.setDaySelectionState(day, state: state)
         
-        if let index = selectedDays.index(of: day) {
+        if let index = selectedDays.firstIndex(of: day) {
             selectedDays.remove(at: index)
         } else {
             selectedDays.append(day)

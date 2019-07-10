@@ -1,5 +1,5 @@
 PODS:
-  - VACalendar (1.2)
+  - VACalendar (1.4)
 
 DEPENDENCIES:
   - VACalendar (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  VACalendar: 7cdbd5a4c68a4c9a2fb1e6bba6f518079675a07d
+  VACalendar: ad2479ecb990ec54427a7318f8851d350598229b
 
 PODFILE CHECKSUM: 1e8c394723e9f5113c66dc5f263af47dbf2f7fc0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2
