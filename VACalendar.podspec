@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'VACalendar'
-  s.version          = '1.3'
+  s.version          = '1.4'
   s.summary          = 'Custom Calendar for iOS in Swift'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
 
   s.description      = <<-DESC
 VACalendar helps create customizable calendar for your app. It also supports vertical and horizontal scroll directions!

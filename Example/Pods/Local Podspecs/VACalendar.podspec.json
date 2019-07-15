@@ -1,8 +1,8 @@
 {
   "name": "VACalendar",
-  "version": "1.2",
+  "version": "1.4",
   "summary": "Custom Calendar for iOS in Swift",
-  "swift_version": "4.0",
+  "swift_versions": "5.0",
   "description": "VACalendar helps create customizable calendar for your app. It also supports vertical and horizontal scroll directions!",
   "homepage": "https://github.com/Vodolazkyi/VACalendar",
   "license": {
@@ -17,7 +17,8 @@
   },
   "source": {
     "git": "https://github.com/Vodolazkyi/VACalendar.git",
-    "tag": "1.2"
+    "tag": "1.4"
   },
-  "source_files": "VACalendar/*.swift"
+  "source_files": "VACalendar/*.swift",
+  "swift_version": "5.0"
 }
