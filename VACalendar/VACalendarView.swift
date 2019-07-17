@@ -130,6 +130,21 @@ public class VACalendarView: UIScrollView {
         }
     }
     
+    public func scrollToStartDate() {
+        let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(startDate) })
+        var offset: CGPoint = startMonth?.frame.origin ?? .zero
+        
+        setContentOffset(offset, animated: false)
+        drawVisibleMonth(with: contentOffset)
+        
+        if viewType == .week {
+            let weekOffset = startMonth?.week(with: startDate)?.frame.origin.x ?? 0
+            let inset = startMonth?.monthViewAppearanceDelegate?.leftInset?() ?? 0
+            offset.x += weekOffset - inset
+            setContentOffset(offset, animated: false)
+        }
+    }
+    
     // MARK: Private Methods.
     
     private func directionSetup() {
@@ -193,21 +208,6 @@ public class VACalendarView: UIScrollView {
                 let height = (CGFloat(monthView.numberOfWeeks) * weekHeight) + monthVerticalHeaderHeight
                 monthView.frame = CGRect(x: 0, y: y, width: self.frame.width, height: height)
             }
-        }
-    }
-    
-    private func scrollToStartDate() {
-        let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(startDate) })
-        var offset: CGPoint = startMonth?.frame.origin ?? .zero
-        
-        setContentOffset(offset, animated: false)
-        drawVisibleMonth(with: contentOffset)
-        
-        if viewType == .week {
-            let weekOffset = startMonth?.week(with: startDate)?.frame.origin.x ?? 0
-            let inset = startMonth?.monthViewAppearanceDelegate?.leftInset?() ?? 0
-            offset.x += weekOffset - inset
-            setContentOffset(offset, animated: false)
         }
     }
     
