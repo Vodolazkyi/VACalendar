@@ -26,6 +26,10 @@ public protocol VACalendarViewDelegate: class {
     @objc optional func selectedDate(_ date: Date)
     // use this method for multi selection style
     @objc optional func selectedDates(_ dates: [Date])
+    // use this method to detect scroll to top
+    @objc optional func calendarViewDidScrollToTop(_ scrollView: UIScrollView)
+    // us this method to detect scroll to bottom
+    @objc optional func calendarViewDidScrollToBottom(_ scrollView: UIScrollView)
 }
 
 public class VACalendarView: UIScrollView {
@@ -196,7 +200,7 @@ public class VACalendarView: UIScrollView {
         }
     }
     
-    private func scrollToStartDate() {
+    public func scrollToStartDate() {
         let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(startDate) })
         var offset: CGPoint = startMonth?.frame.origin ?? .zero
         
@@ -265,6 +269,14 @@ extension VACalendarView: UIScrollViewDelegate {
         
         monthDelegate?.monthDidChange(monthView.month.date)
         drawVisibleMonth(with: scrollView.contentOffset)
+    }
+
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y == 0) {
+            calendarDelegate?.calendarViewDidScrollToTop?(scrollView)
+        } else if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
+            calendarDelegate?.calendarViewDidScrollToBottom?(scrollView)
+        }
     }
     
 }
