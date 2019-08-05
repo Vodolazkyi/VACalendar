@@ -274,7 +274,7 @@ extension VACalendarView: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y == 0) {
             calendarDelegate?.calendarViewDidScrollToTop?(scrollView)
-        } else if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
+        } else if scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) {
             calendarDelegate?.calendarViewDidScrollToBottom?(scrollView)
         }
     }
