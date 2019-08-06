@@ -200,15 +200,15 @@ public class VACalendarView: UIScrollView {
         }
     }
     
-    public func scrollToStartDate() {
-        let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(startDate) })
+    public func scrollToStartDate(startDate: Date? = Date()) {
+        let startMonth = monthViews.first(where: { $0.month.dateInThisMonth(startDate ?? Date()) })
         var offset: CGPoint = startMonth?.frame.origin ?? .zero
         
         setContentOffset(offset, animated: false)
         drawVisibleMonth(with: contentOffset)
         
         if viewType == .week {
-            let weekOffset = startMonth?.week(with: startDate)?.frame.origin.x ?? 0
+            let weekOffset = startMonth?.week(with: startDate ?? Date())?.frame.origin.x ?? 0
             let inset = startMonth?.monthViewAppearanceDelegate?.leftInset?() ?? 0
             offset.x += weekOffset - inset
             setContentOffset(offset, animated: false)
