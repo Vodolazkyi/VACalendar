@@ -28,8 +28,10 @@ public protocol VACalendarViewDelegate: class {
     @objc optional func selectedDates(_ dates: [Date])
     // use this method to detect scroll to top
     @objc optional func calendarViewDidScrollToTop(_ scrollView: UIScrollView)
-    // us this method to detect scroll to bottom
+    // use this method to detect scroll to bottom
     @objc optional func calendarViewDidScrollToBottom(_ scrollView: UIScrollView)
+    // use this method to detect when the scrolling action ended
+    @objc optional func calendarViewDidEndDecelerating()
 }
 
 public class VACalendarView: UIScrollView {
@@ -276,6 +278,8 @@ extension VACalendarView: UIScrollViewDelegate {
             calendarDelegate?.calendarViewDidScrollToTop?(scrollView)
         } else if scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) {
             calendarDelegate?.calendarViewDidScrollToBottom?(scrollView)
+        } else {
+            calendarDelegate?.calendarViewDidEndDecelerating?()
         }
     }
     
