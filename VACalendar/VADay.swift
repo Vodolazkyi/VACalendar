@@ -10,7 +10,7 @@ import UIKit
 
 @objc
 public enum VADayState: Int {
-    case out, selected, available, unavailable, today
+    case out, selected, available, unavailable, today, past
 }
 
 @objc
