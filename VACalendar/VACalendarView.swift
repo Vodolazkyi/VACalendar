@@ -40,7 +40,11 @@ public class VACalendarView: UIScrollView {
     public var monthVerticalInset: CGFloat = 20
     public var monthVerticalHeaderHeight: CGFloat = 20
     
-    public var startDate = Date()
+    public var startDate = Date() {
+        didSet {
+            scrollToStartDate()
+        }
+    }
     public var showDaysOut = true
     public var selectionStyle: VASelectionStyle = .single
     
