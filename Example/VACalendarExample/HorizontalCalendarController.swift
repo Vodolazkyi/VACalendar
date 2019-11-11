@@ -46,6 +46,7 @@ final class HorizontalCalendarController: UIViewController {
         super.viewDidLoad()
         
         let calendar = VACalendar(calendar: defaultCalendar)
+
         calendarView = VACalendarView(frame: .zero, calendar: calendar)
         calendarView.showDaysOut = true
         calendarView.selectionStyle = .multi
@@ -54,6 +55,8 @@ final class HorizontalCalendarController: UIViewController {
         calendarView.monthViewAppearanceDelegate = self
         calendarView.calendarDelegate = self
         calendarView.scrollDirection = .horizontal
+        let last = defaultCalendar.date(byAdding: .year, value: 1, to: Date())!
+        calendarView.setAvailableDates(.range(Date(), last))
         calendarView.setSupplementaries([
             (Date().addingTimeInterval(-(60 * 60 * 70)), [VADaySupplementary.bottomDots([.red, .magenta])]),
             (Date().addingTimeInterval((60 * 60 * 110)), [VADaySupplementary.bottomDots([.red])]),
