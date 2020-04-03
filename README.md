@@ -2,7 +2,7 @@
 
 # Screenshots
 <p>
-<img src="Screenshots/horizontal_calendar.gif" width="30%" height="auto"> <img src="Screenshots/vertical_calendar.gif" width="30%" height="auto" hspace="20">  <img src="Screenshots/pop_up_calendar.gif" width="30%" height="auto">
+<img src="/Screenshots/horizontal_calendar.gif" width="30%" height="auto"> <img src="/Screenshots/vertical_calendar.gif" width="30%" height="auto" hspace="20">  <img src="/Screenshots/pop_up_calendar.gif" width="30%" height="auto">
 </p>
 
 ## About ![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg)
