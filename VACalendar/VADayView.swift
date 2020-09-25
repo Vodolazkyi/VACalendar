@@ -30,11 +30,7 @@ class VADayView: UIView {
 
     var isToday: Bool = false
     var day: VADay {
-        didSet {
-            if Calendar.current.isDateInToday(day.date) {
-                isToday = true
-            }
-        }
+        didSet { isToday = Calendar.current.isDateInToday(day.date) }
     }
     weak var delegate: VADayViewDelegate?
     
@@ -108,8 +104,8 @@ class VADayView: UIView {
         }
 
         if Calendar.current.isDateInToday(day.date) && state == .available {
-             dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: .today)
-             dateLabel.font = dayViewAppearanceDelegate?.font?(for: .today)
+            dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: .today)
+            dateLabel.font = dayViewAppearanceDelegate?.font?(for: .today)
         } else if Date().compare(day.date) == .orderedDescending && state == .available && state != .selected {
             dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: .past)
             dateLabel.font = dayViewAppearanceDelegate?.font?(for: .past)
@@ -123,7 +119,6 @@ class VADayView: UIView {
 
         dateLabel.backgroundColor = dayViewAppearanceDelegate?.textBackgroundColor?(for: state) ?? dateLabel.backgroundColor
 
-        
         updateSupplementaryViews()
     }
     
