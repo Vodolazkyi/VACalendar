@@ -289,12 +289,9 @@ extension VACalendarView: VACalendarDelegate {
 }
 
 extension VACalendarView: VAMonthViewDelegate {
-    
     func dayStateChanged(_ day: VADay, in month: VAMonth) {
         switch selectionStyle {
         case .single:
-            guard day.state == .available else { return }
-            
             calendar.deselectAll()
             calendar.setDaySelectionState(day, state: .selected)
             calendarDelegate?.selectedDate?(day.date)
@@ -302,6 +299,5 @@ extension VACalendarView: VAMonthViewDelegate {
         case .multi:
             calendar.setDaySelectionState(day, state: day.reverseSelectionState)
         }
-    }
-    
+    }    
 }
