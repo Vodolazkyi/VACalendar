@@ -27,8 +27,11 @@ protocol VADayViewDelegate: class {
 }
 
 class VADayView: UIView {
-    
-    var day: VADay
+
+    var isToday: Bool = false
+    var day: VADay {
+        didSet { isToday = Calendar.current.isDateInToday(day.date) }
+    }
     weak var delegate: VADayViewDelegate?
     
     weak var dayViewAppearanceDelegate: VADayViewAppearanceDelegate? {
@@ -99,14 +102,23 @@ class VADayView: UIView {
             dateLabel.clipsToBounds = true
             dateLabel.layer.cornerRadius = dateLabel.frame.height / 2
         }
-        
+
+        if Calendar.current.isDateInToday(day.date) && state == .available {
+            dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: .today)
+            dateLabel.font = dayViewAppearanceDelegate?.font?(for: .today)
+        } else if Date().compare(day.date) == .orderedDescending && state == .available && state != .selected {
+            dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: .past)
+            dateLabel.font = dayViewAppearanceDelegate?.font?(for: .past)
+        } else {
+            dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: state) ?? dateLabel.textColor
+        }
+
         backgroundColor = dayViewAppearanceDelegate?.backgroundColor?(for: state) ?? backgroundColor
         layer.borderColor = dayViewAppearanceDelegate?.borderColor?(for: state).cgColor ?? layer.borderColor
         layer.borderWidth = dayViewAppearanceDelegate?.borderWidth?(for: state) ?? dateLabel.layer.borderWidth
-        
-        dateLabel.textColor = dayViewAppearanceDelegate?.textColor?(for: state) ?? dateLabel.textColor
+
         dateLabel.backgroundColor = dayViewAppearanceDelegate?.textBackgroundColor?(for: state) ?? dateLabel.backgroundColor
-        
+
         updateSupplementaryViews()
     }
     

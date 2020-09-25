@@ -10,7 +10,7 @@ import UIKit
 
 @objc
 public enum VADayState: Int {
-    case out, selected, available, unavailable
+    case out, selected, available, unavailable, today, past
 }
 
 @objc
@@ -28,6 +28,10 @@ public enum VADaySupplementary: Hashable {
         case .bottomDots:
             return 1
         }
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(1)
     }
     
     public static func ==(lhs: VADaySupplementary, rhs: VADaySupplementary) -> Bool {
