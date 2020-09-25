@@ -29,6 +29,10 @@ public enum VADaySupplementary: Hashable {
             return 1
         }
     }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(1)
+    }
     
     public static func ==(lhs: VADaySupplementary, rhs: VADaySupplementary) -> Bool {
         return lhs.hashValue == rhs.hashValue
