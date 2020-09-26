@@ -40,12 +40,22 @@ public class VACalendarView: UIScrollView {
     public var monthVerticalInset: CGFloat = 20
     public var monthVerticalHeaderHeight: CGFloat = 20
     
-    public var startDate = Date()
+    public var startDate = Date() {
+        didSet {
+            scrollToStartDate()
+        }
+    }
     public var showDaysOut = true
     public var selectionStyle: VASelectionStyle = .single
-    
+
+    private let defaultCalendar: Calendar = {
+        var calendar = Calendar.current
+        calendar.firstWeekday = 1
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        return calendar
+    }()
     private var calculatedWeekHeight: CGFloat = 100
-    private let calendar: VACalendar
+    public lazy var calendar: VACalendar = VACalendar(selectedDate: Date(), calendar: defaultCalendar)
     private var monthViews = [VAMonthView]()
     private let maxNumberOfWeek = 6
     private let numberDaysInWeek = 7
@@ -63,13 +73,13 @@ public class VACalendarView: UIScrollView {
     }
     
     public init(frame: CGRect, calendar: VACalendar) {
-        self.calendar = calendar
-        
         super.init(frame: frame)
+        self.calendar = calendar
+        setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     // specify all properties before calling setup()
@@ -279,12 +289,9 @@ extension VACalendarView: VACalendarDelegate {
 }
 
 extension VACalendarView: VAMonthViewDelegate {
-    
     func dayStateChanged(_ day: VADay, in month: VAMonth) {
         switch selectionStyle {
         case .single:
-            guard day.state == .available else { return }
-            
             calendar.deselectAll()
             calendar.setDaySelectionState(day, state: .selected)
             calendarDelegate?.selectedDate?(day.date)
@@ -292,6 +299,5 @@ extension VACalendarView: VAMonthViewDelegate {
         case .multi:
             calendar.setDaySelectionState(day, state: day.reverseSelectionState)
         }
-    }
-    
+    }    
 }

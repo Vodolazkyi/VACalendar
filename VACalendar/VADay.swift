@@ -80,6 +80,11 @@ class VADay {
     func dateInDay(_ date: Date) -> Bool {
         return calendar.isDate(date, equalTo: self.date, toGranularity: .day)
     }
+
+    /// Check if date is in provided range
+    func dateInRange(start: Date, end: Date) -> Bool {
+        return (start ... end).contains(date)
+    }
     
     func setSelectionState(_ state: VADayState) {
         guard state == reverseSelectionState && isSelectable else { return }
